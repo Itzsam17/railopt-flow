@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #14171C;
+    color: #E8E6DF;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Zero out all box-shadows, dropshadows, and backdrop-blurs */
+*, ::before, ::after {
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-shadow-colored: 0 0 #0000 !important;
+  --tw-drop-shadow: none !important;
+}
+
+.backdrop-blur-none,
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+.backdrop-blur-xl,
+.backdrop-blur-2xl,
+.backdrop-blur-3xl {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.shadow-glow-ai,
+.shadow-glow-cyan,
+.shadow-glow-emerald,
+.shadow-glow-red,
+.shadow-glow-amber,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: none !important;
+}
+
+/* Matte Metal Control Console Surfaces */
+.bg-matte-panel {
+  background-color: #1B1F26;
+}
+
+.bg-matte-raised {
+  background-color: #21262E;
+}
+
+/* Dark Matte Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #14171C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E343D;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3D4450;
+}
+
+/* 1px flat hairline borders without glow */
+.border-glow-ai,
+.border-glow-cyan {
+  border-color: #5B7FA6;
+}
+
+.border-glow-emerald {
+  border-color: #4F9A6E;
+}
+
+/* Flat panel micro-interactions without elevation shadows */
+.card-interactive {
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card-interactive:hover {
+  border-color: #3D4450;
+  background-color: #21262E;
+}
+
