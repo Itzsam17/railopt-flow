@@ -7,9 +7,12 @@ import {
   OptimizationResult,
   ConflictItem 
 } from '../types/api';
-
-const API_BASE = (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_API_URL || '';
-
+const envApiUrl = import.meta.env.VITE_API_URL;
+// In production or when VITE_API_URL is configured, route requests directly to the Render backend.
+// In local development with empty VITE_API_URL, route via relative paths to utilize Vite's dev proxy.
+export const API_BASE = (envApiUrl && envApiUrl.trim() !== '')
+  ? envApiUrl.trim().replace(/\/+$/, '')
+  : (import.meta.env.PROD ? 'https://railopt-flow-backend.onrender.com' : '');
 // Fallback seed data in case backend server is starting or offline
 const FALLBACK_KPIS: DashboardKPIResponse = {
   asset_availability: {
